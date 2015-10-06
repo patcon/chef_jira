@@ -7,9 +7,12 @@ database_connection = {
 
 case settings['database']['type']
 when 'mysql'
-  include_recipe 'mysql::server'
-  include_recipe 'database::mysql'
 
+  # We used to include these recipes here - these have since become library cookbooks, and 
+  # so these includes are unnecessary - and will in fact cause failures / are incorrect.
+  # include_recipe 'mysql::server'
+  # include_recipe 'database::mysql'
+  
   mysql_client 'default' do
     action :create
   end
