@@ -10,6 +10,8 @@
   [[GH-15]](https://github.com/afklm/chef_jira/issues/15)
 * Added service restart when ark resource changes.
   [[GH-16]](https://github.com/afklm/chef_jira/issues/16)
+* Removed unnecessary non-dynamic `web.xml` template.
+  [[GH-10]](https://github.com/afklm/chef_jira/issues/10)
 
 ## 2.1.0
 
