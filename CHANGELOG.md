@@ -1,3 +1,8 @@
+## x.y.z (pending)
+
+* Fixed setting of `jira.home` for all install types.
+  [[GH-15]](https://github.com/afklm/chef_jira/issues/15)
+
 ## 2.1.0
 
 * MIGRATED: renamed cookbook jira -> chef_jira
