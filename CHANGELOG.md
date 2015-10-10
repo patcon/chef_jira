@@ -8,6 +8,8 @@
   [[GH-14]](https://github.com/afklm/chef_jira/issues/14)
 * Fixed setting of `jira.home` for all install types.
   [[GH-15]](https://github.com/afklm/chef_jira/issues/15)
+* Added service restart when ark resource changes.
+  [[GH-16]](https://github.com/afklm/chef_jira/issues/16)
 
 ## 2.1.0
 
