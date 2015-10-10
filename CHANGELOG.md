@@ -6,6 +6,8 @@
   [[GH-13]](https://github.com/afklm/chef_jira/pull/13)
 * Added support for PostgreSQL 9.2+ in `dbconfig.xml`.
   [[GH-14]](https://github.com/afklm/chef_jira/issues/14)
+* Fixed setting of `jira.home` for all install types.
+  [[GH-15]](https://github.com/afklm/chef_jira/issues/15)
 
 ## 2.1.0
 

@@ -14,8 +14,11 @@ template "#{node['jira']['home_path']}/dbconfig.xml" do
   notifies :restart, 'service[jira]', :delayed unless node['jira']['install_type'] == 'war'
 end
 
-template "#{node['jira']['install_path']}/edit-webapp/WEB-INF/classes/jira-application.properties" do
+subdir = (node['jira']['install_type'] == 'war') ? 'edit-webapp' : 'atlassian-jira'
+
+template "#{node['jira']['install_path']}/#{subdir}/WEB-INF/classes/jira-application.properties" do
   source 'jira-application.properties.erb'
+  owner node['jira']['user']
   mode '0644'
-  only_if { node['jira']['install_type'] == 'war' }
+  notifies :restart, 'service[jira]', :delayed
 end
