@@ -2,6 +2,8 @@
 
 * Set Tomcat `proxyName`/`proxyPort` even without SSL.
   [[GH-11]](https://github.com/afklm/chef_jira/issues/11)
+* Fixed LWRPs after cookbook name change.
+  [[GH-13]](https://github.com/afklm/chef_jira/pull/13)
 
 ## 2.1.0
 
