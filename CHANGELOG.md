@@ -12,6 +12,8 @@
   [[GH-16]](https://github.com/afklm/chef_jira/issues/16)
 * Removed unnecessary non-dynamic `web.xml` template.
   [[GH-10]](https://github.com/afklm/chef_jira/issues/10)
+* Use https for Jira downloads.
+  [[GH-18]](https://github.com/afklm/chef_jira/issues/18)
 
 ## 2.1.0
 
