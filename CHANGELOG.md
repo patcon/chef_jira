@@ -14,6 +14,8 @@
   [[GH-10]](https://github.com/afklm/chef_jira/issues/10)
 * Use https for Jira downloads.
   [[GH-18]](https://github.com/afklm/chef_jira/issues/18)
+* Added minimal Jira 7 compatibility via `server.xml` template.
+  [[GH-12]](https://github.com/afklm/chef_jira/issues/12)
 
 ## 2.1.0
 
