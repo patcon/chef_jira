@@ -44,14 +44,26 @@ module Jira
       return node['jira']['url'] unless node['jira']['url'].nil?
 
       version = node['jira']['version']
+      base_url = 'http://www.atlassian.com/software/jira/downloads/binary'
 
-      case node['jira']['install_type']
-      when 'installer'
-        "http://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-#{version}-#{jira_arch}.bin"
-      when 'standalone'
-        "http://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-#{version}.tar.gz"
-      when 'war'
-        "http://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-#{version}-war.tar.gz"
+      if Gem::Version.new(version) < Gem::Version.new(7)
+        case node['jira']['install_type']
+        when 'installer'
+          "#{base_url}/atlassian-jira-#{version}-#{jira_arch}.bin"
+        when 'standalone'
+          "#{base_url}/atlassian-jira-#{version}.tar.gz"
+        when 'war'
+          "#{base_url}/atlassian-jira-#{version}-war.tar.gz"
+        end
+      else
+        case node['jira']['install_type']
+        when 'installer'
+          "#{base_url}/atlassian-jira-software-#{version}-jira-#{version}-#{jira_arch}.bin"
+        when 'standalone'
+          "#{base_url}/atlassian-jira-software-#{version}-jira-#{version}.tar.gz"
+        when 'war'
+          fail "WAR install type is not supported by Atlassian for JIRA version #{version}"
+        end
       end
     end
 
@@ -182,6 +194,11 @@ module Jira
           'x64' => '4030010efd5fbec3735dc3a585cd833af957cf7efe4f4bbc34b17175ff9ba328',
           'tar' => 'a8fb59ea41a65e751888491e4c8c26f8a0a6df053805a1308e2b6711980881ec',
           'war' => 'c1055307f6feed5d337f0788fc9c0f566f82f45daaa990a38812c6160dac1818',
+        },
+        '7.0.0' => {
+          'x32' => '3a43274bc2ae404ea8d8c2b50dcb00cc843d03140c5eb11de558b3025202a791',
+          'x64' => '49e12b2ba9f1eaa4ed18e0a00277ea7be19ffd6c55d4a692da3e848310815421',
+          'tar' => '2eb0aff3e71272dc0fd3d9d6894f219f92033d004e46b25b542241151a732817',
         }
       }
     end
