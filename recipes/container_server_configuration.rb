@@ -35,10 +35,10 @@ when 'tomcat'
       source 'tomcat/server.xml.erb'
       owner node['jira']['user']
       mode '0640'
-      variables({
+      variables(
         tomcat: settings['tomcat'],
         template_partial_version: template_partial_version
-      })
+      )
       notifies :restart, 'service[jira]', :delayed
     end
   end
