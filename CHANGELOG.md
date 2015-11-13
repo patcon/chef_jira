@@ -11,6 +11,9 @@
 * Set Postgres DB owner to JIRA user
 * Explicitly set `home_path` perms.
   [[#48]](https://github.com/afklm/jira/issues/48)
+* Converted `virtual_host_name` and `virtual_host_alias` derived attrs
+  into helper methods for templates, etc.
+[[#45]](https://github.com/afklm/jira/issues/45)
 
 ## 2.7.0
 
