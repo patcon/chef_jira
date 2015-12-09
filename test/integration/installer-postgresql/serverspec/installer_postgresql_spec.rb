@@ -4,8 +4,10 @@ require 'json'
 $node = ::JSON.parse(File.read('/tmp/test-helper/node.json'))
 
 describe 'Postgresql' do
-  describe command('psql --version') do
-    its(:stdout) { should contain($node['postgresql']['version']) }
+  $node['postgresql']['client']['packages'].each do |pkg|
+    describe package(pkg) do
+      its(:version) { should >= '9.0' }
+    end
   end
 
   describe port(5432) do
