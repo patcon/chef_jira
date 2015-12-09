@@ -69,6 +69,7 @@ suites:
 - name: installer-postgresql
   run_list:
   - recipe[jira]
+  - recipe[test-helper]
   attributes:
     jira:
       install_type: installer
@@ -97,6 +98,7 @@ suites:
   run_list:
   - recipe[java]
   - recipe[jira]
+  - recipe[test-helper]
   attributes:
     java:
       install_flavor: oracle
