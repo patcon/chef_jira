@@ -4,10 +4,10 @@ require 'json'
 set :backend, :exec
 
 file = '/tmp/test-helper/node.json'
-$node = File.exist?(file) ? ::JSON.parse(File.read(file)) : {}
+node = File.exist?(file) ? ::JSON.parse(File.read(file)) : {}
 
 shared_examples_for 'postgresql' do
-  $node['postgresql']['server']['packages'].each do |pkg|
+  node['postgresql']['server']['packages'].each do |pkg|
     describe package(pkg) do
       its(:version) { should >= '9.0' }
     end
